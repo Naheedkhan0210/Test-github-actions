@@ -11,4 +11,10 @@ jobs :
           echo "Nice to meet you"
         
       - name : Print goodbye
-        run: echo "Good bye ${{github.runner}}"
+        run: echo "Good bye ${{ github.runner }}"
+  Test2:
+    needs: Test1
+    runs-on: ubuntu-latest
+    steps:
+      - name : For sequential Jobs
+        run : echo " I am a sequential Job "
