@@ -1,13 +1,14 @@
 name : Test
 on : workflow_dispatch
+
 jobs :
   Test1:
     runs-on: ubuntu-latest
     steps:
       - name : Print Hello
-       run: |
-        echo "Hello World!!"
-        echo "Nice to meet you"
+        run: |
+          echo "Hello World!!"
+          echo "Nice to meet you"
         
       - name : Print goodbye
-       run: echo "Good bye ${{github.runner}}"
+        run: echo "Good bye ${{github.runner}}"
