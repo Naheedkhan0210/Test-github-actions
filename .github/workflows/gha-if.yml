@@ -19,5 +19,13 @@ jobs:
     steps:
         - name : To run sequential
           run : echo "This is conditional run"
+        - name : Another if_condition
+          id: if_2
+          run: |
+            echo "Just a test"
+            exit 1
+        - name : next_condition
+          if: always() && steps.if_2.outcome == 'success'
+          run: echo "This is a success"
           
           
