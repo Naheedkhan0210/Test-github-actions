@@ -11,6 +11,6 @@ jobs:
             echo "GOODBYE..."
             exit 1
         - name : Print Goodbye
-          if: steps.print_hello.outcome == 'failure'
+          if: failure() && steps.print_hello.outcome == 'failure'
           run : echo "I am printing beacuse step 1 failed"
           
