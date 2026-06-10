@@ -9,7 +9,7 @@ jobs:
           id: print_hello
           run: |
             echo "GOODBYE..."
-            exit 1
+            exit 0
             //even if this step fails follow the next step
         - name : Print Goodbye
           if: failure() && steps.print_hello.outcome == 'failure'
