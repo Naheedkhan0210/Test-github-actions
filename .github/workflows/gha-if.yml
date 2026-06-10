@@ -3,15 +3,21 @@ on: workflow_dispatch
 jobs:
   test_gha_if_condition:
     runs-on: ubuntu-latest
-    
     steps:
         - name : Print Hello
           id: print_hello
           run: |
             echo "GOODBYE..."
-            exit 0
-            //even if this step fails follow the next step
+            exit 1
+            #even if this step fails follow the next step
         - name : Print Goodbye
           if: failure() && steps.print_hello.outcome == 'failure'
           run : echo "I am printing beacuse step 1 failed"
+  Sequential_job:
+    needs: test_gha_if_condition
+    runs-on : ubuntu-latest
+    steps:
+        - name : To run sequential
+          run : echo "This is conditional run"
+          
           
