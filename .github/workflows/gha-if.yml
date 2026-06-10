@@ -23,7 +23,7 @@ jobs:
           id: if_2
           run: |
             echo "Just a test"
-            exit 1
+            exit 0
         - name : next_condition
           if: always() && steps.if_2.outcome == 'success'
           run: echo "This is a success"
