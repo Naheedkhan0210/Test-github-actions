@@ -1,0 +1,16 @@
+name: github_actions_conditional
+on: workflow_dispatch
+jobs:
+  test_gha_if_condition:
+    runs-on: ubuntu-latest
+    
+    steps:
+        - name : Print Hello
+          id: print_hello
+          run: |
+            echo "GOODBYE..."
+            exit 1
+        - name : Print Goodbye
+          if: steps.print_hello.outcome == 'failure'
+          run : echo "I am printing beacuse step 1 failed"
+          
