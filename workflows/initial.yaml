@@ -1,0 +1,10 @@
+name: This is a workflow
+on : workflow_dispatch
+jobs:
+   print_hello :
+     runs-on: ubuntu-latest
+     steps:
+      - name: Say Hello
+        run: echo "Hello This is a workflow which runs on ${{runner.os}}"
+   
+    
