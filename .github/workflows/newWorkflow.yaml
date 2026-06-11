@@ -7,16 +7,17 @@ jobs:
             - name : checkout code
               uses : actions/checkout@v3
 
+            - name : upload  Artifact
+              continue-on-error: true
+              uses : actions/upload-artifact@v3
+
             - name : Failed step
               run : |
                 echo "this step will Fail"
                 echo "${{runner.os}}"
-
-            - name : upload  Artifact
-              uses : actions/upload-artifact@v4
             
             - name : download Artifact
-              uses : actions/download-artifact@v4
+              uses : actions/download-artifact@v3
 
     continue-on-error:
         runs-on: ubuntu-latest
